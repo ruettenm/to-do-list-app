@@ -2,7 +2,7 @@
   "name": "to-do-list-app",
   "version": "1.0.0",
   "author": "Matthias Rütten <matthias.ruetten@codecentric.de>",
-  "description": "to-do list ionic native app",
+  "description": "example to-do list ionic native app",
   "private": false,
   "scripts": {
     "clean": "ionic-app-scripts clean",
