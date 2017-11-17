@@ -1,0 +1,20 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Add New Entry</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <form (ngSubmit)="addEntry()">
+        <ion-item>
+            <ion-label color="primary" floating>Title</ion-label>
+            <ion-input type="text" [(ngModel)]="entry.title" name="title"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label color="primary" floating>Description</ion-label>
+            <ion-textarea rows="10" [(ngModel)]="entry.description" name="description"></ion-textarea>
+        </ion-item>
+        <button ion-button type="submit" block>Add Entry</button>
+    </form>
+</ion-content>
