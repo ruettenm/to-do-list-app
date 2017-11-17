@@ -17,6 +17,6 @@ export class AddEntryPage {
     addEntry() {
         console.log(this.entry)
 
-        this.navCtrl.pop()
+        this.navCtrl.setRoot('home-page')
     }
 }
