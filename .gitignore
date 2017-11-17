@@ -1,0 +1,14 @@
+# logs
+
+
+# IntelliJ Settings
+.idea/
+
+# dependencies
+node_modules/
+
+# build
+.sourcemaps/
+platforms/
+plugins/
+www/
