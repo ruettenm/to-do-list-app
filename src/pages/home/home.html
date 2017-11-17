@@ -1,14 +1,29 @@
 <ion-header>
     <ion-navbar>
         <ion-title>
-            Ionic Blank
+            ToDo List
         </ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="addEntry()">
+                <ion-icon name="add"></ion-icon>
+            </button>
+        </ion-buttons>
     </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-    The world is your oyster.
-    <p>
-        If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-    </p>
+<ion-content>
+    <ion-list>
+        <ion-item>
+            <h2>My first Entry</h2>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat</p>
+        </ion-item>
+        <ion-item>
+            <h2>My second Entry</h2>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat</p>
+        </ion-item>
+        <ion-item>
+            <h2>My third Entry</h2>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat</p>
+        </ion-item>
+    </ion-list>
 </ion-content>
