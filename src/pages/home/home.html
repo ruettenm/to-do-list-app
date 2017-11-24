@@ -11,19 +11,30 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content>
-    <ion-list>
-        <ion-item>
-            <h2>My first Entry</h2>
-            <p text-wrap>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat</p>
-        </ion-item>
-        <ion-item>
-            <h2>My second Entry</h2>
-            <p text-wrap>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat</p>
-        </ion-item>
-        <ion-item>
-            <h2>My third Entry</h2>
-            <p text-wrap>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat</p>
+<ion-content padding>
+    <ion-list *ngIf='apiService.entries && apiService.entries.length > 0'>
+        <ion-item *ngFor='let entry of apiService.entries'>
+            <h2>{{ entry.title }}</h2>
+            <p *ngIf='entry.description' text-wrap>{{ entry.description }}</p>
+            <ion-icon name="trash" color="secondary" item-end (click)="removeEntry(entry.id)"></ion-icon>
         </ion-item>
     </ion-list>
+
+    <ion-card *ngIf='apiService.entries && apiService.entries.length === 0'>
+        <ion-card-header>
+            nothing to do 🎉
+        </ion-card-header>
+        <ion-card-content>
+            <button ion-button icon-left full (click)="addEntry()">
+                <ion-icon name="add"></ion-icon>
+                Add New Entry
+            </button>
+        </ion-card-content>
+    </ion-card>
 </ion-content>
+
+<ion-footer>
+    <ion-toolbar>
+        <ion-title><a href="https://github.com/ruettenm">https://github.com/ruettenm</a></ion-title>
+    </ion-toolbar>
+</ion-footer>

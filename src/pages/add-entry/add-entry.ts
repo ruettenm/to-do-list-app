@@ -1,5 +1,7 @@
 import { Component } from '@angular/core'
-import { IonicPage, NavController } from 'ionic-angular'
+import { AlertController, IonicPage, LoadingController, NavController } from 'ionic-angular'
+import { ApiService } from '../../services/ApiService'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 @IonicPage({
     name: 'add-entry-page'
@@ -9,14 +11,38 @@ import { IonicPage, NavController } from 'ionic-angular'
     templateUrl: 'add-entry.html',
 })
 export class AddEntryPage {
+    form: FormGroup
 
-    entry = {}
-
-    constructor(public navCtrl: NavController) {}
+    constructor(private formBuilder: FormBuilder,
+                private navCtrl: NavController,
+                private apiService: ApiService,
+                private loadingCtrl: LoadingController,
+                private alertCtrl: AlertController) {
+        this.form = this.formBuilder.group({
+            title: [ '', Validators.required ],
+            description: [ '' ]
+        })
+    }
 
     addEntry() {
-        console.log(this.entry)
+        this.loadingCtrl
+            .create({
+                content: 'Adding entry. Please wait...',
+                dismissOnPageChange: true
+            })
+            .present()
 
-        this.navCtrl.setRoot('home-page')
+        this.apiService.create(this.form.value.title, this.form.value.description)
+            .then(response => {
+                this.navCtrl.pop()
+            })
+            .catch(error => {
+                let alert = this.alertCtrl.create({
+                    title: 'something went wrong',
+                    subTitle: error.message,
+                    buttons: ['Ok']
+                })
+                alert.present()
+            })
     }
 }
