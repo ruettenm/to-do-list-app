@@ -9,12 +9,13 @@ cd to-do-list-app
 
 nvm use
 npm install -g ionic@latest
-npm install
+npm install -g yarn@latest
+yarn
 ```
 
 ## development
 ### ... in browser
-execute `npm run ionic:serve` and open http://localhost:8100/
+execute `ionic serve` and open http://localhost:8100/
 
 ### ... in ios simulator
 execute `ionic cordova run ios --emulate`
