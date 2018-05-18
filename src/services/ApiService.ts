@@ -46,5 +46,4 @@ export class ApiService {
                 this.entries = entries
             })
     }
-
 }
